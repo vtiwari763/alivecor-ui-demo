@@ -10,15 +10,15 @@ interface ButtonProps {
   onClick?: any;
 }
 
-export function Button({
+export const Button = ({
   label,
   variant = "contained",
   size = "medium",
   ...props
-}: ButtonProps) {
+}: ButtonProps) => {
   return (
     <MUIButton variant={variant} size={size} {...props}>
       {label}
     </MUIButton>
   );
-}
+};
