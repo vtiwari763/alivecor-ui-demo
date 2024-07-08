@@ -5,4 +5,3 @@ yarn-error.log
 *storybook.log
 .DS_Store
 /storybook-static
-.storybook
