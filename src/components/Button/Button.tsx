@@ -1,6 +1,10 @@
-const Button = () => {
+
+type Props = {
+text: string
+}
+const Button:  React.FC<Props> = ({text}) => {
   return (
-    <div>Button</div>
+    <div>{text}</div>
   )
 };
 
