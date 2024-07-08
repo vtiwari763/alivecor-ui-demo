@@ -1,1 +1,11 @@
-node_modules
+/node_modules
+/src
+.npmrc
+yarn-error.log
+*storybook.log
+.DS_Store
+storybook-static
+.storybook
+
+tsconfig.json
+rollup.config.mjs

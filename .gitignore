@@ -1,5 +1,8 @@
-node_modules
-dist
+/node_modules
+/dist
 .npmrc
 yarn-error.log
 *storybook.log
+.DS_Store
+/storybook-static
+.storybook
