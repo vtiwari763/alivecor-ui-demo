@@ -11,13 +11,12 @@
     "url": "git+https://github.com/vtiwari763/alivecor-ui-demo.git"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "storybook build",
     "deploy": "gh-pages -d storybook-static",
     "dev": "rollup -c --watch",
     "build": "rollup -c",
     "test": "jest --watchAll --verbose",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 6006"
   },
   "author": "AliveCor",
   "license": "MIT",
