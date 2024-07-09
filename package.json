@@ -1,7 +1,7 @@
 {
   "name": "@vtiwari763/alivecor-ui-demo",
   "homepage": "https://vtiwari763/github.io/alivecor-ui-demo",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "AliveCor UI Library",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/imvivektiwari-alivecor"
