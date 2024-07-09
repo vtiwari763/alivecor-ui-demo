@@ -1,7 +1,6 @@
 import * as React from "react";
+import MUISwitch from "@mui/material/Switch";
 
-interface Switchrops {}
-
-export const Switch = ({}: Switchrops) => {
-  return <div>hello switch</div>;
-};
+export function Switch() {
+  return <MUISwitch defaultChecked />;
+}
