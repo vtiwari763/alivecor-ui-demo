@@ -1,7 +1,7 @@
 {
   "name": "@vtiwari763/alivecor-ui-demo",
   "homepage": "https://vtiwari763/github.io/alivecor-ui-demo",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "AliveCor UI Library",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/imvivektiwari-alivecor"
@@ -51,7 +51,9 @@
     "rollup-plugin-postcss": "^4.0.2",
     "storybook": "^8.1.11",
     "tslib": "^2.6.3",
-    "typescript": "^5.5.3",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fontsource/material-icons": "^5.0.18",
@@ -60,8 +62,5 @@
     "@mui/x-data-grid": "^7.9.0",
     "gh-pages": "^6.1.1",
     "react": "^18.3.1"
-  },
-  "dependencies": {
-    
   }
 }
