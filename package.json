@@ -1,7 +1,7 @@
 {
   "name": "@vtiwari763/alivecor-ui-demo",
   "homepage": "https://vtiwari763/github.io/alivecor-ui-demo",
-  "version": "0.0.18",
+  "version": "0.0.22",
   "description": "AliveCor UI Library",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/imvivektiwari-alivecor"
@@ -27,6 +27,12 @@
   ],
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@fontsource/material-icons": "^5.0.18",
+    "@fontsource/roboto": "^5.0.13",
+    "@mui/material": "^5.16.0",
+    "@mui/x-data-grid": "^7.9.0",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
@@ -41,23 +47,16 @@
     "@storybook/react-webpack5": "^8.1.11",
     "@storybook/test": "^8.1.11",
     "@types/react": "^18.3.3",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.39",
     "postcss-import": "^16.1.0",
+    "react": "^18.3.1",
     "rollup": "^4.18.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-postcss": "^4.0.2",
     "storybook": "^8.1.11",
     "tslib": "^2.6.3",
-    "typescript": "^5.5.3",
-
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@fontsource/material-icons": "^5.0.18",
-    "@fontsource/roboto": "^5.0.13",
-    "@mui/material": "^5.16.0",
-    "@mui/x-data-grid": "^7.9.0",
-    "gh-pages": "^6.1.1",
-    "react": "^18.3.1"
+    "typescript": "^5.5.3"
   },
   "peerDependencies": {
     "@emotion/react": "^11.11.4",
@@ -68,5 +67,6 @@
     "@mui/x-data-grid": "^7.9.0",
     "gh-pages": "^6.1.1",
     "react": "^18.3.1"
-  }
+  },
+  "dependencies": {}
 }

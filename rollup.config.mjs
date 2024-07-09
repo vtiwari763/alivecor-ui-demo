@@ -29,11 +29,14 @@ export default [
       }),
       postcss({ extensions: [".css"], inject: true, extract: false }),
     ],
+    external: ['react', 'react-dom'],
+    externals: ['react', 'react-dom',]
   },
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts()],
-    external: [/\.css$/],
+    external: [/\.css$/, 'react', 'react-dom'],
+    externals: ['react', 'react-dom',]
   },
 ];
