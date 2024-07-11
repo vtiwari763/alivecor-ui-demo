@@ -11,7 +11,6 @@ import ViewColumnOutlinedIcon from '@mui/icons-material/ViewColumnOutlined';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 import FormatAlignJustifyOutlinedIcon from '@mui/icons-material/FormatAlignJustifyOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
-import Button from '../Button';
 
 function CustomToolbar() {
   return (
@@ -39,7 +38,6 @@ function CustomToolbar() {
           button: { variant: 'outlined', size: "medium",  startIcon: null, endIcon: <FileDownloadOutlinedIcon /> },
         }}
       />
-      <Button label='My Action' variant='outlined'/>
     </GridToolbarContainer>
     <br/>
     <Divider />

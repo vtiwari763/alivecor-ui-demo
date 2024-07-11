@@ -2,9 +2,9 @@ import React from "react";
 import { LicenseInfo } from "@mui/x-license";
 import CustomToolbar from "./CustomToolbar";
 import {  MUI_LICENSE } from "./constants/TableConstants";
-import { Paper, ThemeProvider } from "@mui/material";
-import { DataGridPremiumWithKCStyles } from "./theme";
+import { ThemeProvider } from "@mui/material";
 import { aliveCorTheme } from "../../utils/theme";
+import { DataGridPremium } from '@mui/x-data-grid-premium'
 
 LicenseInfo.setLicenseKey(MUI_LICENSE);
 type TableProps = {
@@ -24,21 +24,12 @@ export const DataGrid = (props: TableProps) => {
     onFiltersChange=undefined, //onchaneg event in filter.
     disableRowSelectionOnClick=true,
     pageSize=10,
-    children,
   } = props;
 
   return (
     <ThemeProvider theme={aliveCorTheme}>
-    <Paper
-      sx={{
-        height: "100%",
-        padding: {
-          sm: 3,
-          xs: 1,
-        },
-      }}
-    >
-      <DataGridPremiumWithKCStyles
+   
+      <DataGridPremium
         getEstimatedRowHeight={() => 100}
         slots={{
           toolbar: CustomToolbar,
@@ -54,8 +45,6 @@ export const DataGrid = (props: TableProps) => {
         pageSizeOptions={[5, 10, 25]}
         {...props}
       />
-      {children}
-    </Paper>
     </ThemeProvider>
   );
 };
