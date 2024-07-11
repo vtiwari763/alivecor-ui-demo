@@ -4,7 +4,7 @@ import CustomToolbar from "./CustomToolbar";
 import {  MUI_LICENSE } from "./constants/TableConstants";
 import { ThemeProvider } from "@mui/material";
 import { aliveCorTheme } from "../../utils/theme";
-import { DataGridPremium } from '@mui/x-data-grid-premium'
+import { DataGridPro } from '@mui/x-data-grid-pro'
 
 LicenseInfo.setLicenseKey(MUI_LICENSE);
 type TableProps = {
@@ -21,6 +21,7 @@ type TableProps = {
 
 export const DataGrid = (props: TableProps) => {
   const {
+    columns=[],
     onFiltersChange=undefined, //onchaneg event in filter.
     disableRowSelectionOnClick=true,
     pageSize=10,
@@ -28,8 +29,7 @@ export const DataGrid = (props: TableProps) => {
 
   return (
     <ThemeProvider theme={aliveCorTheme}>
-   
-      <DataGridPremium
+      <DataGridPro
         getEstimatedRowHeight={() => 100}
         slots={{
           toolbar: CustomToolbar,

@@ -1,6 +1,0 @@
-import { SUPPORTED_LOCALE, LOCALE_DEFAULT_TEXT } from './LocaleText';
-
-export {
-  SUPPORTED_LOCALE,
-  LOCALE_DEFAULT_TEXT
-}
