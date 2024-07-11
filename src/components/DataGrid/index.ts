@@ -1,2 +1,2 @@
-import { KcTable } from "./DataGrid";
-export default KcTable;
+import { DataGrid } from "./DataGrid";
+export default DataGrid;

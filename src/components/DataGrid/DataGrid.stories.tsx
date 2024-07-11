@@ -1,13 +1,13 @@
 import React from 'react';
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { Table } from "./DataGrid";
+import { DataGrid } from "./DataGrid";
 import { GridColDef, GridActionsCellItem } from "@mui/x-data-grid";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const meta = {
   title: "DataGrid",
-  component: Table,
+  component: DataGrid,
   parameters: {
     layout: "centered",
   },
@@ -16,7 +16,7 @@ const meta = {
    
   },
   args: { },
-} satisfies Meta<typeof Table>;
+} satisfies Meta<typeof DataGrid>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

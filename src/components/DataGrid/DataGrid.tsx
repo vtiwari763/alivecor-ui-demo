@@ -1,7 +1,7 @@
 import React from "react";
 import { LicenseInfo } from "@mui/x-license";
 import CustomToolbar from "./CustomToolbar";
-import {  MUI_LICENSE } from "./constants";
+import {  MUI_LICENSE } from "./constants/TableConstants";
 import { Paper, ThemeProvider } from "@mui/material";
 import { DataGridPremiumWithKCStyles } from "./theme";
 import { aliveCorTheme } from "../../utils/theme";
@@ -19,7 +19,7 @@ type TableProps = {
   pageSize?: number;
 }
 
-export const Table = (props: TableProps) => {
+export const DataGrid = (props: TableProps) => {
   const {
     onFiltersChange=undefined, //onchaneg event in filter.
     disableRowSelectionOnClick=true,
