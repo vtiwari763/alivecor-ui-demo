@@ -8,5 +8,5 @@ export const aliveCorTheme = responsiveFontSizes(createTheme({
       secondary:{
         main: '#F5F5F5',
       }
-    }
+    },
 }));

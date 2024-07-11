@@ -1,0 +1,4 @@
+const MUI_LICENSE =
+  "aae3f8c2f83f4a59db742834b56e213bTz00OTU0MixFPTE2OTI4MTkwNzQ1MzcsUz1wcmVtaXVtLExNPXN1YnNjcmlwdGlvbixLVj0y";
+
+export default MUI_LICENSE;

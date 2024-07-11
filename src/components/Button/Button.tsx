@@ -3,7 +3,6 @@ import MUIButton from "@mui/material/Button";
 import "./button.css";
 import { ThemeProvider } from "@emotion/react";
 import { aliveCorTheme } from "../../utils/theme";
-import { CircularProgress } from "@mui/material";
 
 
 type ButtonProps = {
