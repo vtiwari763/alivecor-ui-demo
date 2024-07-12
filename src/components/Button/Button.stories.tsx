@@ -1,5 +1,7 @@
+import React from 'react';
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
+import SendIcon from '@mui/icons-material/Send';
 import { Button } from "./Button";
 
 const meta = {
@@ -34,9 +36,9 @@ export const Outline: Story = {
   },
 };
 
-export const Large: Story = {
+export const StartIcon: Story = {
   args: {
-    size: "large",
+    size: "medium",
     label: "Button",
   },
 };
@@ -50,9 +52,20 @@ export const Small: Story = {
 
 export const Disabled: Story = {
   args: {
-    size: "small",
+    size: "large",
     label: "Button",
+    variant: "contained",
     disabled: true,
     loading: true,
+  },
+};
+
+export const Icons: Story = {
+  args: {
+    size: "large",
+    label: "Button",
+    variant: "contained",
+    loading: true,
+    startIcon: <SendIcon />
   },
 };

@@ -9,6 +9,8 @@ type InputProps = {
   variant?: "filled" | "outlined" | "standard";
   label: string;
   helperText?: string;
+  color?: "error" | "warning";
+  focused?: boolean,
   disabled?: boolean;
   required?: boolean;
   type?: "password" | "number" | "text";

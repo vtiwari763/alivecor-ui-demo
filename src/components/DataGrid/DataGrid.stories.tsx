@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 import { DataGrid } from "./DataGrid";
-import { GridColDef, GridActionsCellItem } from "@mui/x-data-grid";
+import { GridColDef, GridActionsCellItem } from "@mui/x-data-grid-pro";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const meta = {
@@ -22,26 +22,23 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 
-const columns = [
+const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 90 },
   {
     field: 'firstName',
     headerName: 'First name',
     width: 150,
-    editable: true,
   },
   {
     field: 'lastName',
     headerName: 'Last name',
     width: 150,
-    editable: true,
   },
   {
     field: 'age',
     headerName: 'Age',
     type: 'number',
     width: 110,
-    editable: true,
   },
   {
     field: 'fullName',
@@ -60,23 +57,6 @@ const columns = [
       return row?.age >= 18 ? 'Adult' : 'Child'
     }
   },
-  {
-
-    field: 'actions',
-    type: 'actions',
-    width: 80,
-    getActions: (params: any) => [
-      <GridActionsCellItem
-       icon={<DeleteIcon htmlColor='#CC3D3F' />}
-        label="Delete User"
-        onClick={(...args)=> console.log(args, params)}
-        showInMenu
-        sx={{
-          color:'#CC3D3F'
-        }}
-      />,
-    ],
-  }
 ];
 
 const rows = [
@@ -98,8 +78,15 @@ export const DataGridDefault: Story = {
     columns: columns,
     rows: rows,
     pageSize:5,
-    pagination: true,
-    pageSizeOption: [5, 10],
-    checkboxSelection: true,
+    pagination: false,
+    pageSizeOptions: [5, 10],
+    checkboxSelection: false,
+    onFiltersChange: (args)=>{alert(args)},
+    actionMenu: [{
+      label: 'Delete',
+      color: 'red',
+      icon: <DeleteIcon htmlColor='red'/>,
+      onClick: (...args: any)=> console.log(...args)
+    }]
   },
 };

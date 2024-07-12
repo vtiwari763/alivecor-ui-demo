@@ -4,45 +4,81 @@ import CustomToolbar from "./CustomToolbar";
 import {  MUI_LICENSE } from "./constants/TableConstants";
 import { ThemeProvider } from "@mui/material";
 import { aliveCorTheme } from "../../utils/theme";
-import { DataGridPro } from '@mui/x-data-grid-pro'
+import { DataGridPro, GridColDef, GridActionsCellItem } from '@mui/x-data-grid-pro'
+
 
 LicenseInfo.setLicenseKey(MUI_LICENSE);
 type TableProps = {
+  columns: GridColDef[];
+  rows: any[];
   onFiltersChange?: (arg: any)=> void;
   checkboxSelection?: boolean;
   disableRowSelectionOnClick?: boolean;
-  pagination?: boolean;
-  pageSizeOption?: number[];
-  children?: any;
-  columns: any[];
-  rows: any[];
+  disableMultipleRowSelection?: boolean;
+  //disableVirtualization?: boolean;
   pageSize?: number;
+  pagination?: boolean;
+  pageSizeOptions?: number[];
+  onPaginationModelChange?:  (arg: any)=> void;
+  autoHeight?: boolean;
+  loading?: boolean;
+  actionMenu?: any[];
+  enableToolbar?: boolean;
+  disableColumnSorting?: boolean;
 }
 
 export const DataGrid = (props: TableProps) => {
   const {
-    columns=[],
-    onFiltersChange=undefined, //onchaneg event in filter.
-    disableRowSelectionOnClick=true,
-    pageSize=10,
+    columns,
+    onFiltersChange=undefined, //onchaneg event in filter
+    pageSize=5,
+    autoHeight=true,
+    actionMenu=[],
+    enableToolbar=false,
   } = props;
+
+  if(actionMenu.length){
+    const  getMenu = (params: any)=>{
+      const menuOptions = actionMenu.map((menu)=>{
+        return (
+          <GridActionsCellItem
+            icon={menu.icon}
+            label={menu.label}
+            onClick={()=> menu.onClick(params)}
+            showInMenu
+            sx={{
+              color: menu.color
+            }}
+          />
+        )
+      });
+      return menuOptions;
+    }
+    
+    columns.push({
+      field: 'actions',
+      type: 'actions',
+      width: 80,
+      getActions: (params: any) => getMenu(params),
+    })
+  }
+  
 
   return (
     <ThemeProvider theme={aliveCorTheme}>
       <DataGridPro
         getEstimatedRowHeight={() => 100}
         slots={{
-          toolbar: CustomToolbar,
+          toolbar: enableToolbar ? CustomToolbar: null,
         }}
         onFilterModelChange={(newFilterModel: any) => {
           onFiltersChange !== undefined &&
           onFiltersChange(newFilterModel);
         }}
-        disableRowSelectionOnClick={disableRowSelectionOnClick}
         initialState={{
           pagination: { paginationModel: { pageSize: pageSize} },
         }}
-        pageSizeOptions={[5, 10, 25]}
+        autoHeight={autoHeight}
         {...props}
       />
     </ThemeProvider>
