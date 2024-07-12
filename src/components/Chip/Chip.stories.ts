@@ -17,10 +17,42 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Outlined: Story = {
+export const Normal: Story = {
   args: {
-   label: "New",
+   label: "New Items",
    avatar: "12",
-   size: "medium"
+  },
+};
+
+export const Abnormal: Story = {
+  args: {
+   label: "New Items",
+   avatar: "12",
+   type:"abnormal"
+  },
+};
+
+export const NeedAttention: Story = {
+  args: {
+   label: "New Items",
+   avatar: "12",
+   type:"needAttention"
+  },
+};
+
+export const Severe: Story = {
+  args: {
+   label: "New Items",
+   avatar: "12",
+   type:"severe"
+  },
+};
+
+
+export const Crisis: Story = {
+  args: {
+   label: "New Items",
+   avatar: "12",
+   type:"crisis"
   },
 };
