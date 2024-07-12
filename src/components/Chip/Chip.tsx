@@ -93,22 +93,38 @@ const MuiChipCrisis = styled(MUIChip)(() => {
   }
 });
 
-
+const MuiChipDisabled= styled(MUIChip)(() => { 
+  return {
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    border: '1px solid rgba(0, 0, 0, 0.2)',
+    color: '#fff',   
+    '& .MuiChip-label': {
+       color: 'rgba(0, 0, 0, 0.87)',
+       fontWeight: 400
+    },
+    '& .MuiChip-avatar': {
+       color: '#fff',
+       backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    },
+  }
+});
 
 export const Chip = ({
   avatar,
   size="medium",
-  type="normal",
+  type,
   ...props
 }: ButtonProps) => {
 
   return (
     <ThemeProvider theme={aliveCorTheme}>
+      {!type && <MUIChip size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
       {type==='normal' && <MuiChipNormal size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
       {type==='abnormal' && <MuiChipAbNormal size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
       {type==='needAttention' && <MuiChipNeedAttention size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
       {type==='severe' && <MuiChipSevere size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
       {type==='crisis' && <MuiChipCrisis size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
+      {type==='disabled' && <MuiChipDisabled size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
     </ThemeProvider>
   );
 };

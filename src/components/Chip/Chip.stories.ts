@@ -17,10 +17,18 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Default: Story = {
+  args: {
+   label: "New Items",
+   avatar: "12",
+  },
+};
+
 export const Normal: Story = {
   args: {
    label: "New Items",
    avatar: "12",
+   type:"normal"
   },
 };
 
@@ -54,5 +62,14 @@ export const Crisis: Story = {
    label: "New Items",
    avatar: "12",
    type:"crisis"
+  },
+};
+
+
+export const Disabled: Story = {
+  args: {
+   label: "New Items",
+   avatar: "12",
+   type:"disabled"
   },
 };
