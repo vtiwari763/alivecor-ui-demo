@@ -14,7 +14,7 @@ type InputProps = {
   error?: boolean;
   FormHelperTextProps?: object;
   fullWidth?: boolean;
-  helperText?: ReactElement;
+  helperText?: ReactElement | string;
   id?: string;
   InputLabelProps?: object;
   inputProps?: object;

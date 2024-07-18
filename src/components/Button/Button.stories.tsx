@@ -27,39 +27,3 @@ export const Primary: Story = {
     onClick: fn(()=> alert('clicked'))
   },
 };
-
-export const Outline: Story = {
-  args: {
-    label: "Button",
-    size: "medium",
-    variant: "outlined",
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: "small",
-    label: "Button",
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    size: "large",
-    label: "Button",
-    variant: "contained",
-    disabled: true,
-    loading: true,
-  },
-};
-
-export const Icons: Story = {
-  args: {
-    size: "medium",
-    label: "Button",
-    variant: "contained",
-    loading: false,
-    startIcon: <SendIcon />,
-    endIcon: <SendIcon />
-  },
-};
