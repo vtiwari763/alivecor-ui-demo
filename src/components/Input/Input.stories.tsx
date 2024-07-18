@@ -25,19 +25,3 @@ export const Outlined: Story = {
   },
 };
 
-export const Password: Story = {
-    args: {
-      label: "Password",
-      variant: 'outlined',
-      type: "password",
-    },
-  };
-
-export const HelperText: Story = {
-    args: {
-        label: "Password",
-        type: "password",
-        helperText: 'Enter the password',
-    },
-};
-
