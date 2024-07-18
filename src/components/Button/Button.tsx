@@ -1,33 +1,35 @@
-import React, { ReactHTMLElement, ReactNode } from "react";
+import React, { ReactElement } from "react";
 import MUIButton from "@mui/material/Button";
-import CircularProgress from '@mui/material/CircularProgress';
 import "./button.css";
-import { ThemeProvider } from "@emotion/react";
-import { aliveCorTheme } from "../../utils/theme";
-
 
 type ButtonProps = {
   size?: "small" | "medium" | "large";
   variant?: "text" | "contained" | "outlined";
   label: string;
   disabled?: boolean;
+  disableElevation?: boolean;
+  disableFocusRipple?: boolean;
+  disableRipple?: boolean;
+  fullWidth?: boolean;
+  href?: string;
   onClick?: () => void;
   loading?: boolean;
-  startIcon?: ReactNode
+  startIcon?: ReactElement;
+  endIcon?: ReactElement;
+  children?: ReactElement;
+  color?: 'inherit' | 'primary' | 'secondary' | 'success' | 'error'| 'info' | 'warning';
+  classes?: string;
 }
 
 export const Button = ({
   label,
-  loading,
   ...props
 }: ButtonProps) => {
 
   return (
-    <ThemeProvider theme={aliveCorTheme}>
-      <MUIButton  {...props} startIcon={loading? <CircularProgress size={20} color="secondary"/>: null}>
-        { label}
-      </MUIButton>
-    </ThemeProvider>
+    <MUIButton  {...props}>
+    { label}
+  </MUIButton>
     
   );
 };

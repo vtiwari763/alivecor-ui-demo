@@ -1,16 +1,25 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import MUIChip from "@mui/material/Chip";
-import { ThemeProvider } from "@emotion/react";
-import { aliveCorTheme } from "../../utils/theme";
-import { Avatar, createTheme, styled } from "@mui/material";
+import { Avatar, styled } from "@mui/material";
 
 
 type ButtonProps = {
-  label: string;
+  label?: string;
+  alt?: string;
+  src?: string;
+  classes?: object;
+  component?: ReactElement;
+  href?: string;
   avatar?: any;
   size?: "small" | "medium";
   variant?: "filled" | "outlined";
   type?: "normal" | "abnormal" | "needAttention" | "severe" | "crisis" | "disabled"
+  color?: 'default' | 'primary'| 'secondary'| 'error'| 'info' | 'success' | 'warning';
+  onClick?: ()=> void;
+  clickable?: boolean;
+  onDelete?: ()=> void;
+  deleteIcon?: ReactElement;
+  icon?: ReactElement;
 }
 
 const MuiChipNormal = styled(MUIChip)(() => { 
@@ -117,14 +126,14 @@ export const Chip = ({
 }: ButtonProps) => {
 
   return (
-    <ThemeProvider theme={aliveCorTheme}>
-      {!type && <MUIChip size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
+    <>
+     {!type && <MUIChip size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
       {type==='normal' && <MuiChipNormal size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
       {type==='abnormal' && <MuiChipAbNormal size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
       {type==='needAttention' && <MuiChipNeedAttention size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
       {type==='severe' && <MuiChipSevere size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
       {type==='crisis' && <MuiChipCrisis size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
       {type==='disabled' && <MuiChipDisabled size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
-    </ThemeProvider>
+    </>
   );
 };

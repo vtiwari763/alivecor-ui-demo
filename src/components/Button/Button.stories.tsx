@@ -36,13 +36,6 @@ export const Outline: Story = {
   },
 };
 
-export const StartIcon: Story = {
-  args: {
-    size: "medium",
-    label: "Button",
-  },
-};
-
 export const Small: Story = {
   args: {
     size: "small",
@@ -62,10 +55,11 @@ export const Disabled: Story = {
 
 export const Icons: Story = {
   args: {
-    size: "large",
+    size: "medium",
     label: "Button",
     variant: "contained",
-    loading: true,
-    startIcon: <SendIcon />
+    loading: false,
+    startIcon: <SendIcon />,
+    endIcon: <SendIcon />
   },
 };

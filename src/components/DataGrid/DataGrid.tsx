@@ -2,8 +2,6 @@ import React from "react";
 import { LicenseInfo } from "@mui/x-license";
 import CustomToolbar from "./CustomToolbar";
 import {  MUI_LICENSE } from "./constants/TableConstants";
-import { ThemeProvider } from "@mui/material";
-import { aliveCorTheme } from "../../utils/theme";
 import { DataGridPro, GridColDef, GridActionsCellItem } from '@mui/x-data-grid-pro'
 
 
@@ -65,23 +63,21 @@ export const DataGrid = (props: TableProps) => {
   
 
   return (
-    <ThemeProvider theme={aliveCorTheme}>
-      <DataGridPro
-        getEstimatedRowHeight={() => 100}
-        slots={{
-          toolbar: enableToolbar ? CustomToolbar: null,
-        }}
-        onFilterModelChange={(newFilterModel: any) => {
-          onFiltersChange !== undefined &&
-          onFiltersChange(newFilterModel);
-        }}
-        initialState={{
-          pagination: { paginationModel: { pageSize: pageSize} },
-        }}
-        autoHeight={autoHeight}
-        {...props}
-      />
-    </ThemeProvider>
+    <DataGridPro
+    getEstimatedRowHeight={() => 100}
+    slots={{
+      toolbar: enableToolbar ? CustomToolbar: null,
+    }}
+    onFilterModelChange={(newFilterModel: any) => {
+      onFiltersChange !== undefined &&
+      onFiltersChange(newFilterModel);
+    }}
+    initialState={{
+      pagination: { paginationModel: { pageSize: pageSize} },
+    }}
+    autoHeight={autoHeight}
+    {...props}
+  />
   );
 };
 
