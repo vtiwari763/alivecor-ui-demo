@@ -13,8 +13,8 @@ type ButtonProps = {
   avatar?: any;
   size?: "small" | "medium";
   variant?: "filled" | "outlined";
-  type?: "normal" | "abnormal" | "needAttention" | "severe" | "crisis" | "disabled"
-  color?: 'default' | 'primary'| 'secondary'| 'error'| 'info' | 'success' | 'warning';
+  type?: "default" | "normal" | "abnormal" | "needAttention" | "severe" | "crisis" | "disabled" | string
+  //color?: 'default' | 'primary'| 'secondary'| 'error'| 'info' | 'success' | 'warning';
   onClick?: ()=> void;
   clickable?: boolean;
   onDelete?: ()=> void;
@@ -22,98 +22,84 @@ type ButtonProps = {
   icon?: ReactElement;
 }
 
-const MuiChipNormal = styled(MUIChip)(() => { 
-  return {
-    backgroundColor: 'rgba(6, 127, 111, 0.2)',
-    border: '1px solid rgb(6, 127, 111)',
-    color: 'white',   
-    '& .MuiChip-label': {
-       color: 'rgba(0, 0, 0, 0.87)',
-       fontWeight: 400
-    },
-    '& .MuiChip-avatar': {
-       color: '#fff',
-       backgroundColor: 'rgb(6, 127, 111)',
-    },
-  }
-});
+const getChipColor = (type: string)=>{
+  let bgColor = 'rgba(255, 255, 255, 1)';
+  let borderColor = '1px solid rgba(0, 0, 0, 0.6)';
+  let labelColor = 'rgba(0, 0, 0, 0.6)';
+  let avatarBgColor = 'rgba(0, 0, 0, 0.6)';
 
-const MuiChipAbNormal = styled(MUIChip)(() => { 
-  return {
-    backgroundColor: 'rgba(253, 194, 70, 0.2)',
-    border: '1px solid rgb(253, 194, 70)',
-    color: '#fff',   
-    '& .MuiChip-label': {
-       color: 'rgba(0, 0, 0, 0.87)',
-       fontWeight: 400
-    },
-    '& .MuiChip-avatar': {
-       color: '#fff',
-       backgroundColor: 'rgb(253, 194, 70)',
-    },
+  if(type=='normal'){
+    bgColor = 'rgba(6, 127, 111, 0.2)';
+    borderColor = '1px solid rgb(6, 127, 111)';
+    labelColor = 'rgba(0, 0, 0, 0.8)';
+    avatarBgColor = 'rgb(6, 127, 111)';
   }
-});
-
-const MuiChipNeedAttention = styled(MUIChip)(() => { 
-  return {
-    backgroundColor: 'rgba(247, 140, 78, 0.2)',
-    border: '1px solid rgb(247, 140, 78)',
-    color: '#fff',   
-    '& .MuiChip-label': {
-       color: 'rgba(0, 0, 0, 0.87)',
-       fontWeight: 400
-    },
-    '& .MuiChip-avatar': {
-       color: '#fff',
-       backgroundColor: 'rgb(247, 140, 78)',
-    },
+  else if(type=='abnormal'){
+    bgColor = 'rgba(253, 194, 70, 0.2)';
+    borderColor = '1px solid rgb(253, 194, 70)';
+    labelColor = 'rgba(0, 0, 0, 0.8)';
+    avatarBgColor = 'rgb(253, 194, 70)';
   }
-});
-
-const MuiChipSevere = styled(MUIChip)(() => { 
-  return {
-    backgroundColor: 'rgba(242, 95, 95, 0.2)',
-    border: '1px solid rgb(242, 95, 95)',
-    color: '#fff',   
-    '& .MuiChip-label': {
-       color: 'rgba(0, 0, 0, 0.87)',
-       fontWeight: 400
-    },
-    '& .MuiChip-avatar': {
-       color: '#fff',
-       backgroundColor: 'rgb(242, 95, 95)',
-    },
+  else if(type=='needAttention'){
+    bgColor = 'rgba(247, 140, 78, 0.2)';
+    borderColor = '1px solid rgb(247, 140, 78)';
+    labelColor = 'rgba(0, 0, 0, 0.8)';
+    avatarBgColor = 'rgb(247, 140, 78)';
   }
-});
-
-const MuiChipCrisis = styled(MUIChip)(() => { 
-  return {
-    backgroundColor: 'rgba(204, 61, 63, 0.2)',
-    border: '1px solid rgb(204, 61, 63, 1)',
-    color: '#fff',   
-    '& .MuiChip-label': {
-       color: 'rgba(0, 0, 0, 0.87)',
-       fontWeight: 400
-    },
-    '& .MuiChip-avatar': {
-       color: '#fff',
-       backgroundColor: 'rgb(204, 61, 63)',
-    },
+  else if(type=='severe'){
+    bgColor = 'rgba(242, 95, 95, 0.2)';
+    borderColor = '1px solid rgb(242, 95, 95)';
+    labelColor = 'rgba(0, 0, 0, 0.8)';
+    avatarBgColor = 'rgb(242, 95, 95)';
   }
-});
+  else if(type=='crisis'){
+    bgColor = 'rgba(204, 61, 63, 0.2)';
+    borderColor = '1px solid rgb(204, 61, 63)';
+    labelColor = 'rgba(0, 0, 0, 0.8)';
+    avatarBgColor = 'rgb(204, 61, 63)';
+  }
+  else if(type=='disabled'){
+    bgColor = 'rgba(0, 0, 0, 0.1)';
+    borderColor = '1px solid rgb(0, 0, 0, 0.2)';
+    labelColor = 'rgba(0, 0, 0, 0.8)';
+    avatarBgColor = 'rgba(0, 0, 0, 0.2)';
+  }
 
-const MuiChipDisabled= styled(MUIChip)(() => { 
   return {
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    border: '1px solid rgba(0, 0, 0, 0.2)',
-    color: '#fff',   
+    bgColor,
+    borderColor,
+    labelColor,
+    avatarBgColor,
+  }
+};
+
+const MuiChips = styled(MUIChip)((props: any) => { 
+  const chipColor = getChipColor(props.type)
+  const numbers = props?.avatar?.props?.children || 0;
+  const numberLength =  String(numbers).length;
+  return {
+    backgroundColor: chipColor.bgColor,
+    border: chipColor.borderColor,
+    borderRadius: '48px',
+    width: '100%',
+    height: 44,
+    display: 'flex',
+    justifyContent: 'flex-start',
     '& .MuiChip-label': {
-       color: 'rgba(0, 0, 0, 0.87)',
+       color: chipColor.labelColor,
        fontWeight: 400
     },
     '& .MuiChip-avatar': {
        color: '#fff',
-       backgroundColor: 'rgba(0, 0, 0, 0.2)',
+       backgroundColor: chipColor.avatarBgColor,
+       fontWeight: 500,
+       maxWidth: '50%',
+       width: 'unset',
+       minWidth: '35px',
+       minHeight: '35px',
+       boxSizing: 'border-box',
+       borderRadius: numberLength===1 ? '100%' : '48px',
+       padding: numberLength==1 ? 'unset' : '0px 12px 0px 12px',
     },
   }
 });
@@ -121,19 +107,12 @@ const MuiChipDisabled= styled(MUIChip)(() => {
 export const Chip = ({
   avatar,
   size="medium",
-  type,
+  type="default",
   ...props
 }: ButtonProps) => {
 
   return (
-    <>
-     {!type && <MUIChip size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
-      {type==='normal' && <MuiChipNormal size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
-      {type==='abnormal' && <MuiChipAbNormal size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
-      {type==='needAttention' && <MuiChipNeedAttention size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
-      {type==='severe' && <MuiChipSevere size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
-      {type==='crisis' && <MuiChipCrisis size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
-      {type==='disabled' && <MuiChipDisabled size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />}
-    </>
+    //@ts-ignore type is throwing error, Todo: need to fix
+    <MuiChips type={type} size={size} avatar={avatar && <Avatar>{avatar}</Avatar>} {...props} />
   );
 };
